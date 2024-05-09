@@ -145,14 +145,14 @@ function AllPendingOrders() {
         <div className="AllPendingOrders">
             <h1>Total: {totalCount}</h1>
 
-            <div className="search-bar">
+            {/* <div className="search-bar">
                 <input
                     type="text"
                     placeholder="Search by Order ID"
          
                 />
                 <button onClick={handleSearch}>Search</button>
-            </div>
+            </div> */}
 
 
 

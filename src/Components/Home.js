@@ -375,7 +375,7 @@ function Home() {
                 <p>Price Range: ${ minPrice } - ${ maxPrice }</p>
             </div>
 
-            < FiltersIcon/>
+            {/* < FiltersIcon/> */}
 
           
 
