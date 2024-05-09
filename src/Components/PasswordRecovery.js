@@ -3,8 +3,8 @@ import FetchWithAuth from "./Auth/FetchWithAuth";
 import forgotPasswordStyles from  './module.PasswordRecovery.css';
 
 
-const URL = 'http://localhost:3001/reset-password-request';
-const PROFILE_URL = 'http://localhost:3001/profile-info';
+const URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/reset-password-request';
+const PROFILE_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info';
 
 
 function PasswordRecovery() {

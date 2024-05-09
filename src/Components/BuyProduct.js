@@ -63,7 +63,7 @@ const BuyProduct = () => {
     const fetchProducts = async () => {
         try {
             
-            const response = await fetch('http://localhost:3001/allproducts');
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allproducts');
             const data = await response.json();
 
             if (data.length === 0) {
@@ -85,7 +85,7 @@ const BuyProduct = () => {
             setLoading(true);
             setError(null);
 
-            const response = await FetchWithAuth('http://localhost:3001/shipping-info', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/shipping-info', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

@@ -42,14 +42,14 @@ function GoogleLogin() {
     // Function to handle Google login
     const handleLogin = () => {
         // Redirect to Google authentication endpoint
-        window.location.href = 'http://localhost:3001/auth/google';
+        window.location.href = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/auth/google';
     };
 
     // Function to handle creating user on the server
     const createUserOnServer = async () => {
         try {
             // Make a POST request to create-google-user endpoint on the server
-            const response = await fetch('http://localhost:3001/create-google-user', {
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/create-google-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

@@ -63,7 +63,7 @@ function ShippingDetail() {
      // esta funcion tiene el proposito de automaticamente poder eliminar una shipping info, asi como con la seccion de favoritos.
      const handleDeleteShipping = async (shippingId) => {
         try {
-            const response = await fetch(`http://localhost:3001/delete-shipping-info/${shippingId}`, {
+            const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/delete-shipping-info/${shippingId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
