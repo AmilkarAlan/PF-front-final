@@ -9,7 +9,7 @@ async function refreshAccessToken() {
             throw new Error('No refresh token found');
         } // if no refreshToken then user will simply have to re login.
 
-        const response = await fetch('http://ecommerce-reactive-mind.vercel.app/access-token', {
+        const response = await fetch('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/access-token', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -4,7 +4,7 @@ import AdminNavBar from "./AdminNavBar";
 import seeAllUsersOnSiteRegistered from  './module.AllUsers.css';
 import ProfileIcon from "../ProfileIcon";
 
-const URL = 'http://ecommerce-reactive-mind.vercel.app/allusers';
+const URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allusers';
 const accessToken = localStorage.getItem('accessToken');
 
 function AllUsers() {

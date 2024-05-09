@@ -8,7 +8,7 @@ import ProfileIcon from "../ProfileIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let newsletter_url = 'http://ecommerce-reactive-mind.vercel.app/email-all-newsletter';
+let newsletter_url = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/email-all-newsletter';
 
 function EmailNewsletter() {
     const [generalError, setGeneralError] = useState('');
@@ -25,7 +25,7 @@ function EmailNewsletter() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
+            const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

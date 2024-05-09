@@ -8,8 +8,8 @@ import AdminButtonIcon from "./AdminButtonIcon";
 const accessToken = localStorage.getItem('accessToken');
 
 
-let URL = "http://ecommerce-reactive-mind.vercel.app/payment-history";
-let DETAIL_URL = "http://ecommerce-reactive-mind.vercel.app/product-detail";
+let URL = "http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/payment-history";
+let DETAIL_URL = "http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/product-detail";
 
 //URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/payment-history'; // <-- 
 

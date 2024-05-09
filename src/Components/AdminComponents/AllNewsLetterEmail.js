@@ -6,7 +6,7 @@ import AdminNavBar from "./AdminNavBar";
 
 const accessToken = localStorage.getItem('accessToken');
 
-const all_newsletter_emails_url = 'http://ecommerce-reactive-mind.vercel.app/all-newsletter-emails'
+const all_newsletter_emails_url = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/all-newsletter-emails'
 
 function AllNewsLetterEmail() {
     const [generalError, setGeneralError] = useState('');
@@ -20,7 +20,7 @@ function AllNewsLetterEmail() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
+            const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

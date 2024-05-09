@@ -5,7 +5,7 @@ import AdminNavBar from "./AdminNavBar";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://ecommerce-reactive-mind.vercel.app/ban'; // <-- esto aun no esta en Heroku.
+let URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/ban'; // <-- esto aun no esta en Heroku.
 
 function BanUser() {
     const [generalError, setGeneralError] = useState('');
@@ -30,7 +30,7 @@ function BanUser() {
     const checkIsAdmin = async () => {
         try {
             
-            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
+            const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ function BanUser() {
         try {
             setDetailError(''); // Clear detailError when starting to fetch new user details
 
-            const response = await FetchWithAuth(`http://ecommerce-reactive-mind.vercel.app/user-details/${userId}`, {
+            const response = await FetchWithAuth(`http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user-details/${userId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

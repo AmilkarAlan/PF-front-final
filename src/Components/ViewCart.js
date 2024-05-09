@@ -8,11 +8,11 @@ import cartsbeforepurchasecomponent from './module.ViewCart.css';
 const PUBLISHABLE_KEY = 'pk_test_51P7RX608Xe3eKAmZNBa0XOqO2r1gfHIWZfrOxantEvF9QZ8HJgooaHnw86z2mbu2lDpSO1kOzbQ3Rl2IzivzoFVb00n6EW77lL';
 
 const accessToken = localStorage.getItem('accessToken');
-const VIEW_CART_URL = 'http://ecommerce-reactive-mind.vercel.app/user/viewcart';
-const UPDATE_CART_URL = 'http://ecommerce-reactive-mind.vercel.app/user/update-cart';
-const DELETE_CART_ITEM_URL = 'http://ecommerce-reactive-mind.vercel.app/user/delete-from-cart';
-const CHECKOUT_URL = 'http://ecommerce-reactive-mind.vercel.app/create-checkout-session';
-const SHIPPING_INFO_URL = 'http://ecommerce-reactive-mind.vercel.app/shipping-info';
+const VIEW_CART_URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/viewcart';
+const UPDATE_CART_URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/update-cart';
+const DELETE_CART_ITEM_URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/delete-from-cart';
+const CHECKOUT_URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/create-checkout-session';
+const SHIPPING_INFO_URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/shipping-info';
 
 function ViewCart() {
     const [cartItems, setCartItems] = useState([]);
@@ -164,7 +164,7 @@ function ViewCart() {
     const deleteItem = async (productId) => {
         try {
             
-            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/user/delete-from-cart', {
+            const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/delete-from-cart', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

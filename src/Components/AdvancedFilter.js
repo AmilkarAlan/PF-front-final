@@ -34,7 +34,7 @@ function AdvancedFilter() {
             }
 
             // Example fetch call
-            const response = await fetch(`ecommerce-reactive-mind.vercel.app/products/filter/${startPrice}/${endPrice}/${startRating}/${endRating}/${category}/${brand}`, {
+            const response = await fetch(`proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/filter/${startPrice}/${endPrice}/${startRating}/${endRating}/${category}/${brand}`, {
                 method: 'GET'
             });
 
