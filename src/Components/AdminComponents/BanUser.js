@@ -5,7 +5,7 @@ import AdminNavBar from "./AdminNavBar";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://localhost:3001/ban'; // <-- esto aun no esta en Heroku.
+let URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/ban'; // <-- esto aun no esta en Heroku.
 
 function BanUser() {
     const [generalError, setGeneralError] = useState('');
@@ -30,7 +30,7 @@ function BanUser() {
     const checkIsAdmin = async () => {
         try {
             
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,9 +51,9 @@ function BanUser() {
 
     const fetchUserDetails = async () => {
         try {
-            setDetailError(''); // Clear detailError when starting to fetch new user details
+            setDetailError(''); 
 
-            const response = await FetchWithAuth(`http://localhost:3001/user-details/${userId}`, {
+            const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user-details/${userId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

@@ -5,11 +5,11 @@ const accessToken = localStorage.getItem('accessToken'); // if no token then it 
                                                         // then we display a message telling them they can't add to cart
                                                         // until they log in. Or we can redirect them to /login
 
-let ALL_PRODUCTS_IN_CART_URL = 'http://localhost:3001/user/viewcart';
-let ADD_CART_TO_CART_URL = 'http://localhost:3001/user/add-to-cart';
-let DELETE_A_PRODUCT_FROM_CART = 'http://localhost:3001/user/delete-from-cart'; // this will delete the product from the cart no matter the quantity
-let DELETE_ALL_PRODUCTS_FROM_CART = 'http://localhost:3001/user/clear-cart';
-let UPDATE_CART_URL = 'http://localhost:3001/user/update-cart';
+let ALL_PRODUCTS_IN_CART_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/viewcart';
+let ADD_CART_TO_CART_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/add-to-cart';
+let DELETE_A_PRODUCT_FROM_CART = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/delete-from-cart'; // this will delete the product from the cart no matter the quantity
+let DELETE_ALL_PRODUCTS_FROM_CART = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/clear-cart';
+let UPDATE_CART_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/update-cart';
                     
 function ShoppingCart() {
     const [cartItems, setCartItems] = useState([]);
@@ -39,7 +39,7 @@ function ShoppingCart() {
 
         setIsLoading(true);
         try {
-            const response = await FetchWithAuth('http://localhost:3001/user/viewcart', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/viewcart', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
@@ -60,7 +60,7 @@ function ShoppingCart() {
         if (!accessToken) {return} // instead of return display a message to the user
 
         try {
-            await FetchWithAuth('http://localhost:3001/user/add-to-cart', {
+            await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/add-to-cart', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ function ShoppingCart() {
 
         if (!accessToken) {return}
 
-        const response = await fetch('http://localhost:3001/user/update-cart', {
+        const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/update-cart', {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -101,7 +101,7 @@ function ShoppingCart() {
     // this is also a button that will be displayed to delete a specific product from the cart.
     const deleteFromCart = async (productId) => {
         try {
-            await FetchWithAuth('http://localhost:3001/user/delete-from-cart', {
+            await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/delete-from-cart', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ function ShoppingCart() {
     // this will delete all products from the cart, leaving it empty.
     const deleteAllProductsFromCart = async () => {
         try {
-            await FetchWithAuth('http://localhost:3001/user/clear-cart', {
+            await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/clear-cart', {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
@@ -191,7 +191,7 @@ export default ShoppingCart;
 /**
  * // new quantity to also adjust its amount in the cart itself
   const updateQuantity = async (productId, newQuantity) => {
-        const response = await fetch('http://localhost:3001/user/update-cart', {
+        const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/update-cart', {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -211,7 +211,7 @@ export default ShoppingCart;
 
 
      const deleteFromCart = async (productId) => {
-        const response = await fetch(`http://localhost:3001/user/delete-from-cart/${productId}`, {
+        const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/delete-from-cart/${productId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('accessToken')}`

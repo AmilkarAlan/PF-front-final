@@ -3,7 +3,7 @@ import FetchWithAuth from "./Auth/FetchWithAuth";
 import userSpecificReviews from './module.UserReviews.css';
 
 const accessToken = localStorage.getItem('accessToken');
-const USER_REVIEWS_URL = 'http://localhost:3001/user/reviews';
+const USER_REVIEWS_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/reviews';
 
 // IMPORTANTE: <--------- FALTA PODER ELIMINAR REVIEW.
 
@@ -54,7 +54,7 @@ function UserReviews() {
 
     const handleDelete = async (reviewId) => {
         try {
-            const response = await FetchWithAuth(`http://localhost:3001/review/${reviewId}`, {
+            const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/review/${reviewId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

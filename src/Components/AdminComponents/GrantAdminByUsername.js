@@ -6,7 +6,7 @@ import ProfileIcon from "../ProfileIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://localhost:3001/grant-admin-by-username';
+let URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/grant-admin-by-username';
 
 function GrantAdminByUsername() {
     const [generalError, setGeneralError] = useState('');
@@ -16,10 +16,9 @@ function GrantAdminByUsername() {
     const [userNotFoundError, setUserNotFoundError] = useState('');
 
 
-    // here goes a useEffect that will bring the specific user details
-    // as the user types, this gets added to the dependancy array to refresh it on every key press.
 
-    // prevent access
+
+    
     if (!accessToken) {
         window.location.href = '/login'
     };
@@ -27,7 +26,7 @@ function GrantAdminByUsername() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -90,13 +89,13 @@ function GrantAdminByUsername() {
         }
     };
 
-    // get user details each time the admin types something.
+  
     useEffect(() => {
-        // Fetch user details based on username
+        
         const fetchUserDetails = async () => {
             try {
                 // Perform API request to fetch user details   <-- users/info/details/:username
-                const response = await FetchWithAuth(`http://localhost:3001/users/info/details/${username}`, {
+                const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/users/info/details/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

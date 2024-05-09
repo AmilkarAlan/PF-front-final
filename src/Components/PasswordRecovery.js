@@ -12,7 +12,7 @@ function PasswordRecovery() {
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState(null);
 
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; // Simplified email regex for basic validation
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; // verificar correos invalidos
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -23,7 +23,7 @@ function PasswordRecovery() {
         
         setIsLoading(true);
         try {
-            const response = await fetch('http://localhost:3001/reset-password-request', {
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/reset-password-request', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email })

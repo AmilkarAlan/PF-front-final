@@ -4,7 +4,7 @@ import FetchWithAuth from "../Auth/FetchWithAuth";
 import './Activate2FA.css';
 
 const accessToken = localStorage.getItem('accessToken');
-let TWO_FA_URL = 'http://localhost:3001/2fa/activate-and-generate-secret';
+let TWO_FA_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/2fa/activate-and-generate-secret';
 
 function Active2FA() {
     const [generalError, setGeneralError] = useState('');
@@ -20,7 +20,7 @@ function Active2FA() {
     useEffect(() => {
         const checkIsAdmin = async () => {
             try {
-                const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+                const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

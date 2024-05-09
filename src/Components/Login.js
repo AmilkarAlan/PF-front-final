@@ -48,7 +48,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:3001/login', {
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:3001/verify', {
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/verify', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

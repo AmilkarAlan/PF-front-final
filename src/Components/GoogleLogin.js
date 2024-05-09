@@ -7,7 +7,7 @@ function GoogleLogin() {
 
     // Function to open Google authentication window
     const handleLogin = () => {
-        window.open('http://localhost:3001/auth/google', '_self');
+        window.open('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/auth/google', '_self');
     };
 
 

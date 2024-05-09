@@ -14,7 +14,7 @@ function Newsletter() {
 
       try {
         
-        const response = await fetch(`http://localhost:3001/newsletter/${email}`, {
+        const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/newsletter/${email}`, {
           method: 'POST'
       });
 

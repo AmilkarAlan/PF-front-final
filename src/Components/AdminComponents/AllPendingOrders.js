@@ -3,7 +3,7 @@ import FetchWithAuth from "../Auth/FetchWithAuth";
 import seeAllthependingorders from  './module.AllPendingOrders.css';
 
 const accessToken = localStorage.getItem('accessToken');
-let ALL_PENDING_ORDERS_URL = 'http://localhost:3001/all-orders/pending';
+let ALL_PENDING_ORDERS_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/all-orders/pending';
 
 function AllPendingOrders() {
     const [generalError, setGeneralError] = useState('');
@@ -29,7 +29,7 @@ function AllPendingOrders() {
     useEffect(() => {
         const checkIsAdmin = async () => {
             try {
-                const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+                const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ function AllPendingOrders() {
      // fulfill
      const handleFulfill = async (orderId) => {
         try {
-            const response = await FetchWithAuth('http://localhost:3001/orders/fulfill', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/orders/fulfill', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ function AllPendingOrders() {
         }
     };
 
-    // search order by id.
+   // buscar orden by id
     const handleSearch = async () => {};
 
     const fetchPendingOrders = async () => {

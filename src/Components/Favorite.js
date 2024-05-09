@@ -6,7 +6,7 @@ import AdminButtonIcon from "./AdminButtonIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://localhost:3001/products/user/favorites';
+let URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/user/favorites';
 
 function Favorite() {
     const [favorites, setFavorites] = useState([]);
@@ -20,7 +20,7 @@ function Favorite() {
     const handleDeleteFavorite = async (id) => {
         try {
             
-            const response = await FetchWithAuth(`http://localhost:3001/delete-favorite/${id}`, {
+            const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/delete-favorite/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ function Favorite() {
         handleFetch();
     }, []);
 
-    // ADD : <-- DELETE FROM FAVORITES BUTTON.
+   
 
     return (
         <div className="Favorite">

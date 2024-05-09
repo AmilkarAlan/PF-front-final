@@ -57,7 +57,7 @@ function Shipping() {
         }
 
         try {
-            const response = await FetchWithAuth('http://localhost:3001/user/shipping', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/shipping', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

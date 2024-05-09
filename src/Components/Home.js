@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import FetchWithAuth from "./Auth/FetchWithAuth";
 import homeStyles from './module.Home.css';
@@ -8,36 +8,37 @@ import ViewCartIcon from "./ViewCartIcon";
 import LoginIconButton from "./LoginIcon";
 import AdminButtonIcon from "./AdminButtonIcon";
 
+
 const accessToken = localStorage.getItem('accessToken');
 
 
 function Home() {
-    const [products, setProducts] = useState([]);
-    const [generalError, setGeneralError] = useState('');
-    const [noProductsFoundError, setNoProductsFoundError] = useState('');
-    const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-    const [productToSearch, setProductToSearch] = useState('');
-    const [noProductSearchError, setNoProductSearchError] = useState('');
-    const [foundProduct, setFoundProduct] = useState([]);
-    const [newsletterVisible, setNewsletterVisible] = useState(false);
-    const [alphabeticalOrder, setAlphabeticalOrder] = useState(false);
-    const [sortByPriceAsc, setSortByPriceAsc] = useState(false);
-    const [sortByPriceDesc, setSortByPriceDesc] = useState(false);
-    const [filteredProducts, setFilteredProducts] = useState([]);
-    const [quantities, setQuantities] = useState({}); // quantity of the specific product.
-    const [category, setCategory] = useState('');
-    const [successMessages, setSuccessMessages] = useState({});
-    const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(1000000); 
-    const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState('');
-    const [showCategories, setShowCategories] = useState(false);
+    const [ products, setProducts ] = useState([]);
+    const [ generalError, setGeneralError ] = useState('');
+    const [ noProductsFoundError, setNoProductsFoundError ] = useState('');
+    const [ currentPage, setCurrentPage ] = useState(1);
+    const [ totalPages, setTotalPages ] = useState(1);
+    const [ productToSearch, setProductToSearch ] = useState('');
+    const [ noProductSearchError, setNoProductSearchError ] = useState('');
+    const [ foundProduct, setFoundProduct ] = useState([]);
+    const [ newsletterVisible, setNewsletterVisible ] = useState(false);
+    const [ alphabeticalOrder, setAlphabeticalOrder ] = useState(false);
+    const [ sortByPriceAsc, setSortByPriceAsc ] = useState(false);
+    const [ sortByPriceDesc, setSortByPriceDesc ] = useState(false);
+    const [ filteredProducts, setFilteredProducts ] = useState([]);
+    const [ quantities, setQuantities ] = useState({}); // quantity of the specific product.
+    const [ category, setCategory ] = useState('');
+    const [ successMessages, setSuccessMessages ] = useState({});
+    const [ minPrice, setMinPrice ] = useState(0);
+    const [ maxPrice, setMaxPrice ] = useState(1000000);
+    const [ categories, setCategories ] = useState([]);
+    const [ selectedCategory, setSelectedCategory ] = useState('');
+    const [ showCategories, setShowCategories ] = useState(false);
 
 
     const fetchProductsByPriceRange = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/searchbypricerange/${minPrice}/${maxPrice}`, {
+            const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/${minPrice}/${maxPrice}`, {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
                 }
@@ -56,7 +57,7 @@ function Home() {
 
     useEffect(() => {
         fetchProductsByPriceRange();
-    }, [minPrice, maxPrice]);
+    }, [ minPrice, maxPrice ]);
 
     const handlePriceChange = (type, value) => {
         if (type === 'min') {
@@ -67,29 +68,29 @@ function Home() {
     };
 
 
-    
+
 
     // there should be a button to adjust the quantity to be added.
     const handleIncreaseQuantity = (productId) => {
         setQuantities(prev => ({
             ...prev,
-            [productId]: (prev[productId] || 0) + 1
+            [ productId ]: (prev[ productId ] || 0) + 1
         }));
     };
 
     const handleDecreaseQuantity = (productId) => {
         setQuantities(prev => ({
             ...prev,
-            [productId]: Math.max(0, (prev[productId] || 1) - 1)  // Ensure quantity doesn't go below 0
+            [ productId ]: Math.max(0, (prev[ productId ] || 1) - 1)  // Ensure quantity doesn't go below 0
         }));
     };
 
     const handleAddToServerCart = async (productId, quantity) => {
-   //     e.preventDefault();   // Prevent form submission or link navigation
-   //     e.stopPropagation();  // Stop the event from bubbling up to parent elements
-    
+        //     e.preventDefault();   // Prevent form submission or link navigation
+        //     e.stopPropagation();  // Stop the event from bubbling up to parent elements
+
         try {
-            const response = await FetchWithAuth(`http://localhost:3001/user/add-to-cart`, {
+            const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/add-to-cart`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -106,10 +107,10 @@ function Home() {
             console.error('Error adding product to cart:', error);
         }
     };
-    
 
-    
-    
+
+
+
 
 
     useEffect(() => {
@@ -136,23 +137,23 @@ function Home() {
     // filters.
     const handleFilter = async (filterUrl) => {
         try {
-            const response = await fetch(`http://localhost:3001${filterUrl}`);
+            const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/${filterUrl}`);
             if (!response.ok) {
                 throw new Error('Failed to fetch data');
             }
             const data = await response.json();
-            setFilteredProducts(data); 
+            setFilteredProducts(data);
         } catch (error) {
             console.error('Error fetching data:', error);
-            
+
         }
     };
 
 
     const handleSearch = async () => {
         try {
-            
-            const response = await fetch(`http://localhost:3001/search/product/${productToSearch}`);
+
+            const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/search/product/${productToSearch}`);
 
 
             if (response.status === 404) {
@@ -173,7 +174,7 @@ function Home() {
             const data = await response.json();
             setFoundProduct(data);
 
-            const productId = data.products[0].id;
+            const productId = data.products[ 0 ].id;
             console.log(`Product id: ${productId}`);
             window.location.href = `/detail/${productId}`
 
@@ -187,62 +188,62 @@ function Home() {
     useEffect(() => {
         const fetchAllProducts = async () => {
             try {
-                let apiUrl = 'http://localhost:3001/allproducts';
+                let apiUrl = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allproducts';
                 if (alphabeticalOrder) {
-                    apiUrl = 'http://localhost:3001/products/alphorder';
+                    apiUrl = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/alphorder';
                 } else if (sortByPriceAsc) {
-                    apiUrl = 'http://localhost:3001/searchbyprice/asc';
+                    apiUrl = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/searchbyprice/asc';
                 } else if (sortByPriceDesc) {
-                    apiUrl = 'http://localhost:3001/searchbyprice/desc';
+                    apiUrl = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/searchbyprice/desc';
                 }
-        
+
                 const response = await fetch(apiUrl);
-        
+
                 if (!response.ok) {
                     setGeneralError('Ha ocurrido un error');
                     return;
                 }
-        
+
                 const data = await response.json();
                 if (data.length === 0) {
                     setNoProductsFoundError('No hay productos disponibles, te notificaremos cuando los haya !');
                     setGeneralError('');
                     return;
                 }
-        
+
                 // Pagination logic
                 const paginatedProducts = paginate(data, 8); // productos por pagina
-                setProducts(paginatedProducts[currentPage - 1] || []);
+                setProducts(paginatedProducts[ currentPage - 1 ] || []);
                 setTotalPages(paginatedProducts.length);
                 setGeneralError('');
                 setNoProductsFoundError('');
-        
+
             } catch (error) {
                 console.log(`Error: ${error}`);
                 setGeneralError('Ha ocurrido un error.');
             }
         };
-        
-    
+
+
         fetchAllProducts();
-    }, [currentPage, alphabeticalOrder, sortByPriceDesc, sortByPriceAsc]); 
-    
-    
-    
-    
-    
+    }, [ currentPage, alphabeticalOrder, sortByPriceDesc, sortByPriceAsc ]);
+
+
+
+
+
     // Pagination function remains unchanged
     const paginate = (array, pageSize) => {
         return array.reduce((acc, item, index) => {
             const pageIndex = Math.floor(index / pageSize);
-            if (!acc[pageIndex]) {
-                acc[pageIndex] = [];
+            if (!acc[ pageIndex ]) {
+                acc[ pageIndex ] = [];
             }
-            acc[pageIndex].push(item);
+            acc[ pageIndex ].push(item);
             return acc;
         }, []);
     };
-    
+
 
     const handleNextPage = () => {
         setCurrentPage(prevPage => prevPage + 1);
@@ -255,7 +256,7 @@ function Home() {
     // get all categories that exist
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://localhost:3001/all-category');
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/all-category');
             const data = await response.json();
             if (!response.ok) throw new Error(data.message);
             setCategories(data);
@@ -267,7 +268,7 @@ function Home() {
     // select category by simply clicking on it.
     const handleCategorySelect = async (categoryName) => {
         setSelectedCategory(categoryName);
-        const response = await fetch(`http://localhost:3001/category/${categoryName}`);
+        const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/category/${categoryName}`);
         const data = await response.json();
         if (response.ok) {
             setProducts(data);
@@ -276,11 +277,11 @@ function Home() {
             setGeneralError(data.message || 'Failed to load products for the selected category');
         }
     };
-    
+
     const handleCategorySearch = async (e) => {
         e.preventDefault();
         try {
-            const response = await FetchWithAuth(`http://localhost:3001/category/${category}`,{
+            const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/category/${category}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -300,121 +301,121 @@ function Home() {
 
     return (
         <div className="Home">
-            < ProfileIcon/>
-            < ViewCartIcon/>
-            < LoginIconButton/>
-            < AdminButtonIcon/>
+            < ProfileIcon />
+            < ViewCartIcon />
+            < LoginIconButton />
+            < AdminButtonIcon />
             <div className="search-bar">
                 <input
                     type="text"
                     placeholder="Search product"
-                    value={productToSearch}
-                    onChange={(e) => setProductToSearch(e.target.value)}
+                    value={ productToSearch }
+                    onChange={ (e) => setProductToSearch(e.target.value) }
                 />
-                <button onClick={handleSearch}>Search</button>
-                {noProductSearchError && <p style={{ color: 'red' }}>{noProductSearchError}</p>}
-                {foundProduct.length > 0 && (
+                <button onClick={ handleSearch }>Search</button>
+                { noProductSearchError && <p style={ { color: 'red' } }>{ noProductSearchError }</p> }
+                { foundProduct.length > 0 && (
                     <div className="found-product">
-                        <h2>{foundProduct[0].product}</h2>
-                        <p>{foundProduct[0].description}</p>
+                        <h2>{ foundProduct[ 0 ].product }</h2>
+                        <p>{ foundProduct[ 0 ].description }</p>
                     </div>
-                )}
+                ) }
             </div>
 
 
-                
-                <div className="categories">
-                <button onClick={() => setShowCategories(!showCategories)}>
-                {showCategories ? 'Hide Categories' : 'Show Categories'}
-                <div className="category-list">
-                    {categories.map((category) => (
-                        <p key={category.id} onClick={() => handleCategorySelect(category.category)}>
-                            {category.category}
-                        </p>
-                    ))}
-                </div>
-            </button>
-                </div>
+
+            {/* <div className="categories">
+                <button onClick={ () => setShowCategories(!showCategories) }>
+                    { showCategories ? 'Hide Categories' : 'Show Categories' }
+                    <div className="category-list">
+                        { categories.map((category) => (
+                            <p key={ category.id } onClick={ () => handleCategorySelect(category.category) }>
+                                { category.category }
+                            </p>
+                        )) }
+                    </div>
+                </button>
+            </div> */}
 
 
 
 
 
             <div className="price-filters">
-                <input type="range" min="0" max="1000" value={minPrice} onChange={(e) => handlePriceChange('min', e.target.value)} />
-                <input type="range" min="0" max="1000" value={maxPrice} onChange={(e) => handlePriceChange('max', e.target.value)} />
-                <p>Price Range: ${minPrice} - ${maxPrice}</p>
+                <input type="range" min="0" max="1000" value={ minPrice } onChange={ (e) => handlePriceChange('min', e.target.value) } />
+                <input type="range" min="0" max="1000" value={ maxPrice } onChange={ (e) => handlePriceChange('max', e.target.value) } />
+                <p>Price Range: ${ minPrice } - ${ maxPrice }</p>
             </div>
 
-          
+
 
             <div className="toggle-button">
-                    <button onClick={() => setAlphabeticalOrder(!alphabeticalOrder)}>
-                        {alphabeticalOrder ? 'normal order' : 'Sort Alphabetically'}
-                    </button>
-                    <button onClick={handleSortByPriceAsc}>
-                        {sortByPriceAsc ? 'normal order' : 'Sort by Price Ascending'}
-                    </button>
-                    <button onClick={handleSortByPriceDesc}>
-                        {sortByPriceDesc ? 'normal order' : 'Sort by Price Descending'}
-                    </button>
-                </div>
+                <button onClick={ () => setAlphabeticalOrder(!alphabeticalOrder) }>
+                    { alphabeticalOrder ? 'normal order' : 'Sort Alphabetically' }
+                </button>
+                <button onClick={ handleSortByPriceAsc }>
+                    { sortByPriceAsc ? 'normal order' : 'Sort by Price Ascending' }
+                </button>
+                <button onClick={ handleSortByPriceDesc }>
+                    { sortByPriceDesc ? 'normal order' : 'Sort by Price Descending' }
+                </button>
+            </div>
 
 
-           
+
 
             <div className="products-container">
-    {products.map(product => (
-        <div key={product.id} className="product-item">
-            {/* Product Details */}
-            <Link to={`/detail/${product.id}`} className="product-link">
-                <div className="product">
-                    <h3>{product.product}</h3>
-                    <p>{product.description}</p>
-                    <img src={product.image} alt={product.product} />
-                    <p>Price: ${product.price}</p>
-                    <p>Stock: {product.stock === 0 ? 'Out of Stock' : product.stock}</p>
-                </div>
-            </Link>
+                { products.map(product => (
+                    <div key={ product.id } className="product-item">
+                        {/* Product Details */ }
+                        <Link to={ `/detail/${product.id}` } className="product-link">
+                            <div className="product">
+                                <h3>{ product.product }</h3>
+                                <p>{ product.description }</p>
+                                <img src={ product.image } alt={ product.product } />
+                                <p>Price: ${ product.price }</p>
+                                <p>Stock: { product.stock === 0 ? 'Out of Stock' : product.stock }</p>
+                            </div>
+                        </Link>
 
-            {/* Quantity and Cart Buttons */}
-            <div className="quantity-selector">
-                <button onClick={(e) => {
-                    e.stopPropagation(); // Stop click from propagating to any parent elements
-                    handleDecreaseQuantity(product.id);
-                }}>-</button>
-                <span>{quantities[product.id] || 1}</span>
-                <button onClick={(e) => {
-                    e.stopPropagation(); // Stop click from propagating to any parent elements
-                    handleIncreaseQuantity(product.id);
-                }}>+</button>
+                        {/* Quantity and Cart Buttons */ }
+                        <div className="quantity-selector">
+                            <button onClick={ (e) => {
+                                e.stopPropagation(); // Stop click from propagating to any parent elements
+                                handleDecreaseQuantity(product.id);
+                            } }>-</button>
+                            <span>{ quantities[ product.id ] || 1 }</span>
+                            <button onClick={ (e) => {
+                                e.stopPropagation(); // Stop click from propagating to any parent elements
+                                handleIncreaseQuantity(product.id);
+                            } }>+</button>
+                        </div>
+                        <button onClick={ (e) => {
+                            e.preventDefault();  // Prevent the Link navigation
+                            e.stopPropagation(); // Stop propagation to prevent link navigation
+                            handleAddToServerCart(product.id, quantities[ product.id ] || 1, e);
+                        } }>
+                            Add to Server Cart
+                        </button>
+                    </div>
+                )) }
             </div>
-            <button onClick={(e) => {
-                e.preventDefault();  // Prevent the Link navigation
-                e.stopPropagation(); // Stop propagation to prevent link navigation
-                handleAddToServerCart(product.id, quantities[product.id] || 1, e);
-            }}>
-                Add to Server Cart
-            </button>
-        </div>
-    ))}
-</div>
 
 
             <div className="pagination">
-                <button disabled={currentPage === 1} onClick={handlePrevPage}>Previous</button>
-                <span>{currentPage} / {totalPages}</span>
-                <button disabled={currentPage === totalPages} onClick={handleNextPage}>Next</button>
+                <button disabled={ currentPage === 1 } onClick={ handlePrevPage }>Previous</button>
+                <span>{ currentPage } / { totalPages }</span>
+                <button disabled={ currentPage === totalPages } onClick={ handleNextPage }>Next</button>
             </div>
 
-            {generalError && <p style={{ color: 'red' }}>{generalError}</p>}
-            {noProductsFoundError && <p style={{ color: 'blue' }}>{noProductsFoundError}</p>}
+            {/* { generalError && <p style={ { color: 'red' } }>{ generalError }</p> } */}
+            { noProductsFoundError && <p style={ { color: 'blue' } }>{ noProductsFoundError }</p> }
             <br />
-            {newsletterVisible && <Newsletter />}
+            { newsletterVisible && <Newsletter /> }
         </div>
-    );    
+    );
 
-    
+
 };
 
 

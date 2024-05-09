@@ -6,19 +6,19 @@ import FetchWithAuth from "../Components/Auth/FetchWithAuth";
 export function userLogin(credentials) {
     return async (dispatch) => {
         try {
-            const { data, status } = await axios.post("http://localhost:3001/login", credentials);
+            const { data, status } = await axios.post("https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/login", credentials);
 
             if (status === 200) {
                 localStorage.setItem('accessToken', data.accessToken);
                 localStorage.setItem('refreshToken', data.refreshToken);
-                const auth = await FetchWithAuth("http://localhost:3001/profile-info", {
+                const auth = await FetchWithAuth("https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info", {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
                     }
                 })
                 if (auth.status === 200) {
-                    const response = await axios.get("http://localhost:3001/profile-info", {
+                    const response = await axios.get("https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info", {
                         headers: {
                             'Content-Type': 'application/json',
                             Authorization: `Bearer ${data.accessToken}`
@@ -49,7 +49,7 @@ export function userLogin(credentials) {
 export function userSignup(userData) {
     return async (dispatch) => {
         try {
-            const response = await axios.post("http://localhost:3001/signup", userData);
+            const response = await axios.post("https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/signup", userData);
             return dispatch({
                 type: SIGNUP_USER,
                 payload: response.data
@@ -66,7 +66,7 @@ export function userSignup(userData) {
 export function userFavorites() {
     return async (dispatch) => {
         try {
-            const { data, status } = await FetchWithAuth("http://localhost:3001/products/user/favorites", {
+            const { data, status } = await FetchWithAuth("https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/user/favorites", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ export function addFavorites(id) {
     return async (dispatch) => {
         const accessToken = localStorage.getItem("accessToken");
         try {
-            const response = await FetchWithAuth('http://localhost:3001/products/user/favorites', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/user/favorites', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ export function removeFavorites(id) {
     return async (dispatch) => {
         const accessToken = localStorage.getItem("accessToken");
         try {
-                const response = await FetchWithAuth(`http://localhost:3001/delete-favorite/${id}`, {
+                const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/delete-favorite/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

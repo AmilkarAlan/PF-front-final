@@ -5,7 +5,7 @@ import FetchWithAuth from "../Auth/FetchWithAuth";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let ALL_CARTS_URL = 'http://localhost:3001/carts/view-all-carts';
+let ALL_CARTS_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/carts/view-all-carts';
 
 function ViewAllCarts() {
     const [generalError, setGeneralError] = useState(''); // <-- for the catch block

@@ -18,11 +18,11 @@ function Order() {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                let url = 'http://localhost:3001/my-orders';
+                let url = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/my-orders';
                 if (filterAsc) {
                     url += '/asc';
                 } else {
-                    url += '/desc'; // Default to descending order if not filtered by ascending
+                    url += '/desc'; // Default es ascending
                 }
 
                 const response = await FetchWithAuth(url, {
@@ -86,7 +86,7 @@ function Order() {
     }, [filterType]);
 
     const toggleFilterType = () => {
-        // Toggle between 'pending' and 'fulfilled'
+        
         setFilterType(prevFilterType => (prevFilterType === 'pending' ? 'fulfilled' : 'pending'));
     };
     

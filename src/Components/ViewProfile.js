@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import FetchWithAuth from "./Auth/FetchWithAuth";
 import userProfileStyles from './module.ViewProfile.css';
 import AdminButtonIcon from "./AdminButtonIcon";
+import ViewCartIcon from "./ViewCartIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
 
 let URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/profile-info';
 
-let PROFILE_URL = 'http://localhost:3001/profile-info';
+let PROFILE_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info';
 
 
 function ViewProfile() {
@@ -56,6 +57,7 @@ function ViewProfile() {
 
     return (
         <div className="ViewProfile">
+            < ViewCartIcon/>
             < AdminButtonIcon/>
             <h2> <strong>Profile</strong>  </h2>
             <div>

@@ -8,11 +8,11 @@ import cartsbeforepurchasecomponent from './module.ViewCart.css';
 const PUBLISHABLE_KEY = 'pk_test_51P7RX608Xe3eKAmZNBa0XOqO2r1gfHIWZfrOxantEvF9QZ8HJgooaHnw86z2mbu2lDpSO1kOzbQ3Rl2IzivzoFVb00n6EW77lL';
 
 const accessToken = localStorage.getItem('accessToken');
-const VIEW_CART_URL = 'http://localhost:3001/user/viewcart';
-const UPDATE_CART_URL = 'http://localhost:3001/user/update-cart';
-const DELETE_CART_ITEM_URL = 'http://localhost:3001/user/delete-from-cart';
-const CHECKOUT_URL = 'http://localhost:3001/create-checkout-session';
-const SHIPPING_INFO_URL = 'http://localhost:3001/shipping-info';
+const VIEW_CART_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/viewcart';
+const UPDATE_CART_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/update-cart';
+const DELETE_CART_ITEM_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/delete-from-cart';
+const CHECKOUT_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/create-checkout-session';
+const SHIPPING_INFO_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/shipping-info';
 
 function ViewCart() {
     const [cartItems, setCartItems] = useState([]);
@@ -36,19 +36,19 @@ function ViewCart() {
                 stripeScript.async = true;
                 stripeScript.onload = () => {
                     console.log('Stripe.js has loaded.');
-                    // Now you can safely use Stripe here
+                   
                 };
                 document.body.appendChild(stripeScript);
             } else {
                 console.log('Stripe.js is already loaded.');
-                // Now you can safely use Stripe here
+               
             }
         };
     
         loadStripe();
     
         return () => {
-            // Cleanup function
+            
         };
     }, []);
 
@@ -72,11 +72,11 @@ function ViewCart() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`
                 },
-                body: JSON.stringify({ products: productsPayload, reqShippingId: reqShippingId }) //< FIX FIXED value because otherwise it doesnt work.
+                body: JSON.stringify({ products: productsPayload, reqShippingId: reqShippingId }) 
             });
             const checkoutSession = await response.json();
             if (response.ok) {
-                redirectToCheckout(checkoutSession.id); // Make sure this is the correct property
+                redirectToCheckout(checkoutSession.id); 
             } else {
                 throw new Error(checkoutSession.message || 'Failed to initiate checkout');
             }
@@ -102,7 +102,7 @@ function ViewCart() {
     
 
 
-    // fetch all data required for purchase
+    
     useEffect(() => {
         fetchCartItems();
         fetchShippingAddresses();
@@ -153,9 +153,9 @@ function ViewCart() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`
                 },
-                body: JSON.stringify({ productId, quantity: newQuantity }) // <-- it's through body not params
+                body: JSON.stringify({ productId, quantity: newQuantity }) 
             });
-            fetchCartItems(); // <-- same goes for this, there's no need to reload the page
+            fetchCartItems(); 
         } catch (error) {
             setError(`Update error: ${error.message}`);
         }
@@ -164,15 +164,15 @@ function ViewCart() {
     const deleteItem = async (productId) => {
         try {
             
-            const response = await FetchWithAuth('http://localhost:3001/user/delete-from-cart', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/delete-from-cart', {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`
                 },
-                body: JSON.stringify({productId}) // it's throight body not params
+                body: JSON.stringify({productId}) 
             });
-           // instead of fetching agan, just use the .map method to make them dissapear from the screen
+           
            setCartItems(cartItems.filter(item => item.id !== productId));
 
         } catch (error) {
@@ -237,12 +237,4 @@ function ViewCart() {
 
 export default ViewCart;
 
-// this component is one of the most important ones.
-// it will display everything on the user's cart by getting the products from the server.
-// it will then display them in a friendly manner.
-// it will have buttons to quickly delete and change a product quantity, much like in the ShoppingCart component.
-// it will also render all shipping info related to the user, so it can quickly
-// click on the one that wishes to be used for the purchase. like in the BuyProduct component.
-// it will load stripe and everything required for it. 
-// the 'Finish Checkout' button will take everything that's rendered in this component
-// and then go to stripe to finish the purchase.
+
