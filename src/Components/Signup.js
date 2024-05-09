@@ -149,15 +149,8 @@ function Signup() {
     };
 
     return (
-        
-
-
         <div className="Signup">
         <h2>Sign Up</h2>
-    
-            
-
-
             {successMessage && <p className="success-message">{successMessage}</p>}
             <form onSubmit={handleSubmit} className="signup-form">
                 {isLoading && <p className="loading-message"><strong>Creating account...</strong></p>}
@@ -191,7 +184,7 @@ function Signup() {
                 {usernameAlreadyExistsError && <p className="error-message">{usernameAlreadyExistsError}</p>}
                 {accountAlreadyDeletedError && <p className="error-message">{accountAlreadyDeletedError}</p>}
                 <button type="submit" className="button" disabled={isLoading}>Sign Up</button>
-                <p className="link-text">Already have an account? <a href='/login' className="link">Login</a></p>
+                <p className="link-text">Already have an account? <a href='/login' className="link">Login Here!</a></p>
             </form>
         </div>
     );
