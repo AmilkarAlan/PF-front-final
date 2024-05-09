@@ -21,9 +21,9 @@ function UpdateProfilePassword() {
         confirmNewPassword: ''
     });
 
-    if (!accessToken) {
+  /*   if (!accessToken) {
         window.location.href = '/login'
-    }; 
+    };  */
 
 
     const handleSubmit = async (e) => {

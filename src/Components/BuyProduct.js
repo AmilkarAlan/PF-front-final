@@ -25,9 +25,9 @@ const BuyProduct = () => {
     const [missingShippingInfo, setMissingShippingInfo] = useState('');
     const [productInCartNotFound, setProductInCartNotFound] = useState('');
 
-    if (!accessToken) {
+   /*  if (!accessToken) {
         window.location.href = '/login'
-    }
+    } */
 
     useEffect(() => {
         fetchProducts(); // <-- 

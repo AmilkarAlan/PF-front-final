@@ -22,9 +22,9 @@ function Shipping() {
         zip_code: ''
     });
 
-    if (!accessToken) {
+    /* if (!accessToken) {
         window.location.href = '/login';
-    }
+    } */
 
     const handleCreation = async (e) => {
         e.preventDefault();

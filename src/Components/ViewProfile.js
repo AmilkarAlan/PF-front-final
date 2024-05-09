@@ -11,16 +11,14 @@ let URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/profile-inf
 let PROFILE_URL = 'http://localhost:3001/profile-info';
 
 
-
-
 function ViewProfile() {
     const [profileInfo, setProfileInfo] = useState({});
     const [generalError, setGeneralError] = useState('');
     const [isButtonVisible, setIsButtonVisible] = useState('');
 
-   if (!accessToken) {
+  /*  if (!accessToken) {
     window.location.href = '/login'
-   }
+   } */
 
     const fetchProfile = async () => {
         try {
@@ -59,7 +57,7 @@ function ViewProfile() {
     return (
         <div className="ViewProfile">
             < AdminButtonIcon/>
-            <h2 className="card"> <strong>Profile</strong>  </h2>
+            <h2> <strong>Profile</strong>  </h2>
             <div>
                 <p className="card">First name: {profileInfo.first_name || 'Error mostrando nombre'}</p>
                 <p className="card">Last name: {profileInfo.last_name || 'Error mostrando apellido'}</p>

@@ -12,10 +12,10 @@ function Favorite() {
     const [favorites, setFavorites] = useState([]);
     const [generalError, setGeneralError] = useState('');
     const [noProductsFound, setNoProductsFound] = useState('');
-
+/* 
     if (!accessToken) {
         window.location.href = '/login';
-    };
+    }; */
 
     const handleDeleteFavorite = async (id) => {
         try {
