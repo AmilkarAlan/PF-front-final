@@ -23,7 +23,7 @@ function PasswordRecovery() {
         
         setIsLoading(true);
         try {
-            const response = await fetch('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/reset-password-request', {
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/reset-password-request', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email })

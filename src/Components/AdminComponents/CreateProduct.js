@@ -11,8 +11,8 @@ console.log(`Access token: ${accessToken}`);
 let BRAND_DETAIL = `https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/allbrands`;
 let PROFILE_INFO_URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/profile-info';
 
-BRAND_DETAIL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allbrands';
-PROFILE_INFO_URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info';
+BRAND_DETAIL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allbrands';
+PROFILE_INFO_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info';
 
 function CreateProduct() {
     const [formData, setFormData] = useState({
@@ -143,7 +143,7 @@ function CreateProduct() {
             };
 
             
-            const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/product', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/product', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

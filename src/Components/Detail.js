@@ -46,7 +46,7 @@ function Detail() {
 
     const addToServerCart = async () => {
         try {
-            const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/add-to-cart', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user/add-to-cart', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ import ProfileIcon from "../ProfileIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/grant-admin-by-username';
+let URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/grant-admin-by-username';
 
 function GrantAdminByUsername() {
     const [generalError, setGeneralError] = useState('');
@@ -27,7 +27,7 @@ function GrantAdminByUsername() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ function GrantAdminByUsername() {
         const fetchUserDetails = async () => {
             try {
                 // Perform API request to fetch user details   <-- users/info/details/:username
-                const response = await FetchWithAuth(`http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/users/info/details/${username}`, {
+                const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/users/info/details/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

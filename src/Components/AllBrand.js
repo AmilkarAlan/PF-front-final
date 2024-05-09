@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const URL  = "http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allbrands";
+const URL  = "https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allbrands";
 
 function AllBrand() {
     const [brands, setBrands] = useState([]);

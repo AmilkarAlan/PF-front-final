@@ -48,7 +48,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/login', {
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/verify', {
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/verify', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -156,7 +156,7 @@ function Login() {
                 <p style={{ marginTop: '10px', fontSize: '14px', marginLeft: '5%' }}>Forgot password?<a style={{ color: '#007bff', textDecoration: 'none' }} href='/passwordrecovery'> Click Here!</a></p>
                 <p style={{ marginTop: '10px', fontSize: '14px', marginLeft: '5%' }}>You don't have an account? <a style={{ color: '#007bff', textDecoration: 'none' }} href='/signup'>SignUp Here</a></p>
                 <h3 style={{ marginLeft: '130px', color: 'blue' }}>or</h3>
-                <button type="button" onClick={() => { window.location.href = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/auth/google' }} className="GoogleBtn">Continue with Google</button>
+                <button type="button" onClick={() => { window.location.href = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/auth/google' }} className="GoogleBtn">Continue with Google</button>
             </form>
             <br />
             <br />

@@ -14,7 +14,7 @@ function ParentProductDelete() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

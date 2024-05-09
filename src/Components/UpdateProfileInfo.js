@@ -4,7 +4,7 @@ import './UpdateProfileInfo.css';
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile/update-profile-info';
+let URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile/update-profile-info';
 
 function UpdateProfileInfo() {
     const [generalError, setGeneralError] = useState('');
@@ -32,7 +32,7 @@ function UpdateProfileInfo() {
     useEffect(() => {
         const fetchProfileInfo = async () => {
             try {
-                const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
+                const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

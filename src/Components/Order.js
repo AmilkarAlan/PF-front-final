@@ -18,7 +18,7 @@ function Order() {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                let url = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/my-orders';
+                let url = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/my-orders';
                 if (filterAsc) {
                     url += '/asc';
                 } else {

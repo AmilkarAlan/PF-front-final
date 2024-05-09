@@ -5,7 +5,7 @@ import AdminNavBar from "./AdminNavBar";
 import reportedproductsStyles from  './module.ReportedProduct.css';
 
 const PORT = process.env.PORT || 3001;
-const URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/reported';
+const URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/reported';
 
 const accessToken = localStorage.getItem('accessToken');
 
@@ -21,7 +21,7 @@ function ReportedProduct() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

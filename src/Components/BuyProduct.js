@@ -6,7 +6,7 @@ import AdminButtonIcon from "./AdminButtonIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/create-checkout-session';
+let URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/create-checkout-session';
 //                                          https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/create-checkout-session
 //URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/create-checkout-session';
 

@@ -5,7 +5,7 @@ import ProfileIcon from "./ProfileIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL ='http://proyecto-final-back-end-a466e2d08fab.herokuapp.com/shipping-info';
+let URL ='https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/shipping-info';
 
 function ShippingDetail() {
     const [generalError, setGeneralError] = useState('');
