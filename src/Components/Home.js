@@ -38,8 +38,9 @@ function Home() {
 
     const fetchProductsByPriceRange = async () => {
         try {
-            const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/${minPrice}/${maxPrice}`, {
+            const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/searchbypricerange/${minPrice}/${maxPrice}`, {
                 headers: {
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`
                 }
             });
@@ -408,7 +409,7 @@ function Home() {
                 <button disabled={ currentPage === totalPages } onClick={ handleNextPage }>Next</button>
             </div>
 
-            {/* { generalError && <p style={ { color: 'red' } }>{ generalError }</p> } */}
+            {/* { generalError && <p style={ { color: 'red' } }>{ generalError }</p> } */ }
             { noProductsFoundError && <p style={ { color: 'blue' } }>{ noProductsFoundError }</p> }
             <br />
             { newsletterVisible && <Newsletter /> }
