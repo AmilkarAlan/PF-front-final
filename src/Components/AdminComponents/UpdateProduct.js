@@ -5,11 +5,11 @@ import AdminNavBar from "./AdminNavBar";
 
 const accessToken = localStorage.getItem('accessToken');
 
-const URL = 'http://localhost:3001/update-product';
+const URL = 'http://ecommerce-reactive-mind.vercel.app/update-product';
 
 //MEJORAS QUE FALTA: <-- PODER EDITAR CATEGORIA Y TAMBIEN BRAND (POR ID).
 
-const DETAIL_URL = 'http://localhost:3001/product-detail'
+const DETAIL_URL = 'http://ecommerce-reactive-mind.vercel.app/product-detail'
 
 function UpdateProduct() {
     const [generalError, setGeneralError] = useState('');
@@ -31,7 +31,7 @@ function UpdateProduct() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

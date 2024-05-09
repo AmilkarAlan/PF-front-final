@@ -23,7 +23,7 @@ function PasswordRecovery() {
         
         setIsLoading(true);
         try {
-            const response = await fetch('http://localhost:3001/reset-password-request', {
+            const response = await fetch('http://ecommerce-reactive-mind.vercel.app/reset-password-request', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email })

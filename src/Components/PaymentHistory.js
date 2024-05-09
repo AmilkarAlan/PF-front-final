@@ -7,9 +7,9 @@ import AdminButtonIcon from "./AdminButtonIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-const PORT = process.env.PORT || 3001;
-let URL = `http://localhost:${PORT}/payment-history`;
-let DETAIL_URL = `http://localhost:${PORT}/product-detail`;
+
+let URL = "http://ecommerce-reactive-mind.vercel.app/payment-history";
+let DETAIL_URL = "http://ecommerce-reactive-mind.vercel.app/product-detail";
 
 //URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/payment-history'; // <-- 
 

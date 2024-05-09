@@ -4,7 +4,7 @@ import './UpdateProfilePassword.css';
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://localhost:3001/user/update-user-password';
+let URL = 'http://ecommerce-reactive-mind.vercel.app/user/update-user-password';
 
 function UpdateProfilePassword() {
     const [generalError, setGeneralError] = useState('');

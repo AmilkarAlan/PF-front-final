@@ -18,7 +18,7 @@ function DeleteProductById() {
         const checkIsAdmin = async () => {
 
           try {
-            const response = await FetchWithAuth('http://localhost:3001/product/profile-info', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/product/profile-info', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ function DeleteProductById() {
 
             setIsLoading(true);
 
-            const response = await FetchWithAuth(`http://localhost:3001/product/${productId}`, {
+            const response = await FetchWithAuth(`http://ecommerce-reactive-mind.vercel.app/product/${productId}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',

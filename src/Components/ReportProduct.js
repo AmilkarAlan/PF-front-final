@@ -5,7 +5,7 @@ import './ReportProduct.css';
 // VERIFICAR TODOS LOS IMPORTES YA QUE PUEDEN TENER OTROS CAMINOS EN TU PC.
 
 const accessToken = localStorage.getItem('accessToken');
-const URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/products/report/id';
+const URL = 'https://ecommerce-reactive-mind.vercel.app/products/report/id';
 
 function ReportProduct() {
     const [productId, setProductId] = useState('');

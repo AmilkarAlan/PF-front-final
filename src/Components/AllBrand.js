@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const URL  = `https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/allbrands`;
+const URL  = "http://ecommerce-reactive-mind.vercel.app/allbrands";
 
 function AllBrand() {
     const [brands, setBrands] = useState([]);

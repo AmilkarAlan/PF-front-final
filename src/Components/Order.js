@@ -18,7 +18,7 @@ function Order() {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                let url = 'http://localhost:3001/my-orders';
+                let url = 'http://ecommerce-reactive-mind.vercel.app/my-orders';
                 if (filterAsc) {
                     url += '/asc';
                 } else {

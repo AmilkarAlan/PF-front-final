@@ -46,7 +46,7 @@ function Detail() {
 
     const addToServerCart = async () => {
         try {
-            const response = await FetchWithAuth('http://localhost:3001/user/add-to-cart', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/user/add-to-cart', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

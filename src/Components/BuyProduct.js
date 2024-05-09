@@ -6,7 +6,7 @@ import AdminButtonIcon from "./AdminButtonIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://localhost:3001/create-checkout-session';
+let URL = 'http://ecommerce-reactive-mind.vercel.app/create-checkout-session';
 //                                          https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/create-checkout-session
 //URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/create-checkout-session';
 

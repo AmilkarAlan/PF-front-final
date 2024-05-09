@@ -48,7 +48,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:3001/login', {
+            const response = await fetch('http://ecommerce-reactive-mind.vercel.app/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -101,7 +101,7 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:3001/verify', {
+            const response = await fetch('http://ecommerce-reactive-mind.vercel.app/verify', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -156,7 +156,7 @@ function Login() {
                 <p style={{ marginTop: '10px', fontSize: '14px', marginLeft: '5%' }}>Forgot password: <a style={{ color: '#007bff', textDecoration: 'none' }} href='/passwordrecovery'>Reset password</a></p>
                 <p style={{ marginTop: '10px', fontSize: '14px', marginLeft: '5%' }}>or create an account: <a style={{ color: '#007bff', textDecoration: 'none' }} href='/signup'>Signup</a></p>
                 <h3 style={{ marginLeft: '130px', color: 'blue' }}>or</h3>
-                <button type="button" onClick={() => { window.location.href = 'http://localhost:3001/auth/google' }} className="GoogleBtn">Continue with Google</button>
+                <button type="button" onClick={() => { window.location.href = 'http://ecommerce-reactive-mind.vercel.app/auth/google' }} className="GoogleBtn">Continue with Google</button>
             </form>
             <br />
             <br />

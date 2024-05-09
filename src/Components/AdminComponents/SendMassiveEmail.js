@@ -19,7 +19,7 @@ function SendMassiveEmail() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ function SendMassiveEmail() {
 
     const sendEmails = async () => {
         setIsLoading(true);
-        const URL = 'http://localhost:3001/send-email-to-all-users';
+        const URL = 'http://ecommerce-reactive-mind.vercel.app/send-email-to-all-users';
         try {
             const response = await FetchWithAuth(URL, {
                 method: 'POST',

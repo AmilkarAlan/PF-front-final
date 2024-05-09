@@ -5,7 +5,7 @@ import AdminNavBar from "./AdminNavBar";
 import reportedproductsStyles from  './module.ReportedProduct.css';
 
 const PORT = process.env.PORT || 3001;
-const URL = 'http://localhost:3001/products/reported';
+const URL = 'http://ecommerce-reactive-mind.vercel.app/products/reported';
 
 const accessToken = localStorage.getItem('accessToken');
 
@@ -21,7 +21,7 @@ function ReportedProduct() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

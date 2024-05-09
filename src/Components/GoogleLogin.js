@@ -7,7 +7,7 @@ function GoogleLogin() {
 
     // Function to open Google authentication window
     const handleLogin = () => {
-        window.open('http://localhost:3001/auth/google', '_self');
+        window.open('http://ecommerce-reactive-mind.vercel.app/auth/google', '_self');
     };
 
 

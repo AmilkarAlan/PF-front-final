@@ -14,7 +14,7 @@ function Newsletter() {
 
       try {
         
-        const response = await fetch(`http://localhost:3001/newsletter/${email}`, {
+        const response = await fetch(`http://ecommerce-reactive-mind.vercel.app/newsletter/${email}`, {
           method: 'POST'
       });
 

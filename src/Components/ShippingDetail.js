@@ -5,7 +5,7 @@ import ProfileIcon from "./ProfileIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL ='http://localhost:3001/shipping-info';
+let URL ='http://ecommerce-reactive-mind.vercel.app/shipping-info';
 
 function ShippingDetail() {
     const [generalError, setGeneralError] = useState('');

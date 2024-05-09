@@ -6,7 +6,7 @@ import AdminButtonIcon from "./AdminButtonIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://localhost:3001/products/user/favorites';
+let URL = 'http://ecommerce-reactive-mind.vercel.app/products/user/favorites';
 
 function Favorite() {
     const [favorites, setFavorites] = useState([]);
@@ -20,7 +20,7 @@ function Favorite() {
     const handleDeleteFavorite = async (id) => {
         try {
             
-            const response = await FetchWithAuth(`http://localhost:3001/delete-favorite/${id}`, {
+            const response = await FetchWithAuth(`http://ecommerce-reactive-mind.vercel.app/delete-favorite/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

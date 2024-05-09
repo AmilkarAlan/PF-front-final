@@ -6,7 +6,7 @@ import ProfileIcon from "../ProfileIcon";
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://localhost:3001/grant-admin-by-username';
+let URL = 'http://ecommerce-reactive-mind.vercel.app/grant-admin-by-username';
 
 function GrantAdminByUsername() {
     const [generalError, setGeneralError] = useState('');
@@ -27,7 +27,7 @@ function GrantAdminByUsername() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ function GrantAdminByUsername() {
         const fetchUserDetails = async () => {
             try {
                 // Perform API request to fetch user details   <-- users/info/details/:username
-                const response = await FetchWithAuth(`http://localhost:3001/users/info/details/${username}`, {
+                const response = await FetchWithAuth(`http://ecommerce-reactive-mind.vercel.app/users/info/details/${username}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

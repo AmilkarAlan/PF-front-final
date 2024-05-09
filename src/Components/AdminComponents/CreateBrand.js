@@ -8,7 +8,7 @@ const accessToken = localStorage.getItem('accessToken'); // <-- verifica el impo
 
 const PORT = process.env.PORT || 3001; // <-- esto funciona en localhost y heroku.
 let URL  = `https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/brand`;
-URL = 'http://localhost:3001/brand';
+URL = 'http://ecommerce-reactive-mind.vercel.app/brand';
 
 function CreateBrand() {
     const [brandName, setBrandName] = useState('');
@@ -22,7 +22,7 @@ function CreateBrand() {
     const checkIsAdmin = async () => {
         try {
             
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

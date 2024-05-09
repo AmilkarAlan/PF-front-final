@@ -57,7 +57,7 @@ function Shipping() {
         }
 
         try {
-            const response = await FetchWithAuth('http://localhost:3001/user/shipping', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/user/shipping', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

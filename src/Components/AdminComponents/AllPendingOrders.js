@@ -3,7 +3,7 @@ import FetchWithAuth from "../Auth/FetchWithAuth";
 import seeAllthependingorders from  './module.AllPendingOrders.css';
 
 const accessToken = localStorage.getItem('accessToken');
-let ALL_PENDING_ORDERS_URL = 'http://localhost:3001/all-orders/pending';
+let ALL_PENDING_ORDERS_URL = 'http://ecommerce-reactive-mind.vercel.app/all-orders/pending';
 
 function AllPendingOrders() {
     const [generalError, setGeneralError] = useState('');
@@ -29,7 +29,7 @@ function AllPendingOrders() {
     useEffect(() => {
         const checkIsAdmin = async () => {
             try {
-                const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+                const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ function AllPendingOrders() {
      // fulfill
      const handleFulfill = async (orderId) => {
         try {
-            const response = await FetchWithAuth('http://localhost:3001/orders/fulfill', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/orders/fulfill', {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

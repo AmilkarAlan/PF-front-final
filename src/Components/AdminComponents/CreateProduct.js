@@ -11,8 +11,8 @@ console.log(`Access token: ${accessToken}`);
 let BRAND_DETAIL = `https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/allbrands`;
 let PROFILE_INFO_URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/profile-info';
 
-BRAND_DETAIL = 'http://localhost:3001/allbrands';
-PROFILE_INFO_URL = 'http://localhost:3001/profile-info';
+BRAND_DETAIL = 'http://ecommerce-reactive-mind.vercel.app/allbrands';
+PROFILE_INFO_URL = 'http://ecommerce-reactive-mind.vercel.app/profile-info';
 
 function CreateProduct() {
     const [formData, setFormData] = useState({
@@ -143,7 +143,7 @@ function CreateProduct() {
             };
 
             
-            const response = await FetchWithAuth('http://localhost:3001/product', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/product', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

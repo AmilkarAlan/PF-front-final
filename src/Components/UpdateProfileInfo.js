@@ -4,7 +4,7 @@ import './UpdateProfileInfo.css';
 
 const accessToken = localStorage.getItem('accessToken');
 
-let URL = 'http://localhost:3001/profile/update-profile-info';
+let URL = 'http://ecommerce-reactive-mind.vercel.app/profile/update-profile-info';
 
 function UpdateProfileInfo() {
     const [generalError, setGeneralError] = useState('');
@@ -32,7 +32,7 @@ function UpdateProfileInfo() {
     useEffect(() => {
         const fetchProfileInfo = async () => {
             try {
-                const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+                const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

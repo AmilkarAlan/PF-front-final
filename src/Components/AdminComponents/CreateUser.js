@@ -9,7 +9,7 @@ const emailRegex = /^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/;
 
 const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
 
-let URL = 'http://localhost:3001/signup'; // <-- IMPORTANTE: <-- FALTA AGREGAR URL.
+let URL = 'http://ecommerce-reactive-mind.vercel.app/signup'; // <-- IMPORTANTE: <-- FALTA AGREGAR URL.
 
 function CreateUser() {
     const [generalError, setGeneralError] = useState('');
@@ -41,7 +41,7 @@ function CreateUser() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',

@@ -37,7 +37,7 @@ function Home() {
 
     const fetchProductsByPriceRange = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/searchbypricerange/${minPrice}/${maxPrice}`, {
+            const response = await fetch(`http://ecommerce-reactive-mind.vercel.app/${minPrice}/${maxPrice}`, {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
                 }

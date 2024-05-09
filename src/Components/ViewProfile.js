@@ -8,7 +8,7 @@ const accessToken = localStorage.getItem('accessToken');
 
 let URL = 'https://proyecto-final-backend-0e01b3696ca9.herokuapp.com/profile-info';
 
-let PROFILE_URL = 'http://localhost:3001/profile-info';
+let PROFILE_URL = 'http://ecommerce-reactive-mind.vercel.app/profile-info';
 
 
 

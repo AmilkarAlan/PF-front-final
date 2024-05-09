@@ -13,7 +13,7 @@ function DeletedUser() {
     useEffect(() => {
         const checkIsAdmin = async () => {
             try {
-                const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+                const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ function DeletedUser() {
     useEffect(() => {
         const fetchDeletedUsers = async () => {
             try {
-                const response = await FetchWithAuth('http://localhost:3001/all-deleted-users', {
+                const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/all-deleted-users', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

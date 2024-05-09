@@ -21,7 +21,7 @@ function DeleteUserByEmail() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ function DeleteUserByEmail() {
         }
 
         try {
-            const response = await FetchWithAuth(`http://localhost:3001/deleteuser/email/${email}`, {
+            const response = await FetchWithAuth(`http://ecommerce-reactive-mind.vercel.app/deleteuser/email/${email}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

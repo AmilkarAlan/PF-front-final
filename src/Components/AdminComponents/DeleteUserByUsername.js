@@ -16,7 +16,7 @@ function DeleteUserByUsername() {
     useEffect(() => {
         const checkAccessTokenExpired = async () => {
             try {
-                const response = await fetch('http://localhost:3001/access-token', {
+                const response = await fetch('http://ecommerce-reactive-mind.vercel.app/access-token', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ function DeleteUserByUsername() {
     useEffect(() => {
         const checkIsAdmin = async () => {
           try {
-            const response = await FetchWithAuth('http://localhost:3001/profile-info', {
+            const response = await FetchWithAuth('http://ecommerce-reactive-mind.vercel.app/profile-info', {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ function DeleteUserByUsername() {
 
     const handleDelete = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/deleteuser/${usernameToDelete}`, {
+            const response = await fetch(`http://ecommerce-reactive-mind.vercel.app/deleteuser/${usernameToDelete}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
