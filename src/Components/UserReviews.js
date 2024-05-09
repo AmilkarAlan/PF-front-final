@@ -14,9 +14,9 @@ function UserReviews() {
     const [reviewDeleted, setReviewDeleted] = useState('');
     const [failedToDeleteReview, setFailedToDeleteReview] = useState('');
 
-    if (!accessToken) {
+   /*  if (!accessToken) {
         window.location.href = '/login'
-    }
+    } */
 
     useEffect(() => {
         const fetchUserReviews = async () => {

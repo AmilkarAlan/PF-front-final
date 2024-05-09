@@ -1,12 +1,11 @@
 .Favorite {
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 50px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  margin-left: 150px;
 }
 
 .Favorite h2 {
@@ -35,23 +34,25 @@
 }
 
 .favorite-card h3 {
-  flex: 1 1 300px;
+  flex: 1 1 auto; /* Ajustado para ocupar todo el espacio disponible */
   font-size: 20px;
   color: #ecf0f1;
   margin-bottom: 10px;
 }
 
 .favorite-card p {
-  flex: 1 1 300px;
+  flex: 1 1 auto; /* Ajustado para ocupar todo el espacio disponible */
   color: #ecf0f1;
   line-height: 1.5;
+  margin-bottom: 5px; /* Espaciado adicional entre párrafos */
 }
 
 .favorite-card img {
-  max-width: 200px;
+  width: 200px; /* Ajustado para tener un ancho fijo */
+  max-width: 100%; /* Evita que la imagen se extienda más allá de su contenedor */
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .favorite-card img:hover {
@@ -59,6 +60,7 @@
 }
 
 .DeleteFavoriteButton {
+  flex: 0 0 auto; /* Ajustado para no ocupar todo el ancho */
   padding: 10px 20px;
   background-color: #e74c3c;
   color: white;
@@ -94,34 +96,35 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .Favorite {
-      padding: 10px;
+    padding: 10px;
   }
 
   .favorite-card {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .favorite-card h3,
   .favorite-card p {
-      flex: 1 1 100%;
+    flex: 1 1 100%;
+    text-align: center; /* Centrar texto en dispositivos móviles */
   }
 
   .DeleteFavoriteButton {
-      width: 100%;
-      margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
   }
 }
 
 /* Subtle animations for loading and unloading */
 @keyframes fadeIn {
   from {
-      opacity: 0;
-      transform: translateY(10px);
+    opacity: 0;
+    transform: translateY(10px);
   }
   to {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -131,12 +134,12 @@
 
 @keyframes fadeOut {
   from {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
   to {
-      opacity: 0;
-      transform: translateY(-10px);
+    opacity: 0;
+    transform: translateY(-10px);
   }
 }
 

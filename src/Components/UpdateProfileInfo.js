@@ -25,9 +25,9 @@ function UpdateProfileInfo() {
     });
 
     //prevent access 
-    if (!accessToken) {
+  /*   if (!accessToken) {
         window.location.href = '/login'
-    };
+    }; */
 
     useEffect(() => {
         const fetchProfileInfo = async () => {
