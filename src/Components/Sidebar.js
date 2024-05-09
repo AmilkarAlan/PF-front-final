@@ -30,12 +30,6 @@ const Sidebar = () => {
                         <Link to="/favorites">Favorites</Link>
                     </li>
                     <li>
-                        <Link to="/faq">FAQS</Link>
-                    </li>
-                    <li>
-                        <Link to="/favorites">Favorites</Link>
-                    </li>
-                    <li>
                         <Link to="/shippingdetails">Shipping details</Link>
                     </li>
                     <li>
@@ -51,6 +45,12 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <Link to="/paymenthistory">Payment History</Link>
+                    </li>
+                    <li>
+                        <Link to="/faq">FAQS</Link>
+                    </li>
+                    <li>
+                        <Link to="/aboutus">About us</Link>
                     </li>
                   
                     

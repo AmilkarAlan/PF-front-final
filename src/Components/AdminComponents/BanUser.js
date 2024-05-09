@@ -51,7 +51,7 @@ function BanUser() {
 
     const fetchUserDetails = async () => {
         try {
-            setDetailError(''); // Clear detailError when starting to fetch new user details
+            setDetailError(''); 
 
             const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/user-details/${userId}`, {
                 method: 'GET',
