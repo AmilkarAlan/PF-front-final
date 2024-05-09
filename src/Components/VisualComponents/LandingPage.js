@@ -1,4 +1,5 @@
 import React from 'react';
+import style from "./LandingPage.module.css"
 import styled, { createGlobalStyle } from 'styled-components';
 import { Parallax } from 'react-parallax';
 import Carousel from 'react-multi-carousel';
@@ -123,6 +124,12 @@ const GamingLanding = () => {
           ))}
         </Carousel>
       </Container>
+      <div className={style.image_mosaic}>
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/f4a19b66113023.5b11047634765.png" alt="" />
+        <img src="https://th.bing.com/th/id/R.8e5350832f0411dde76dcf3448b83bf5?rik=RSYMj3rj1OplXg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" />
+        <img src="https://th.bing.com/th/id/R.67913347a422173a4325d2ccbcf1eaf5?rik=qDIcagC9KZbBeA&pid=ImgRaw&r=0" alt="" />
+        <img src="https://th.bing.com/th/id/R.4e003e419ca775582ebf199a6d251cb9?rik=mXFNkL6NKwTEIw&pid=ImgRaw&r=0" alt="" />
+      </div>
       <Footer>
         © 2024 Electronic Tech E-commerce. All rights reserved.
       </Footer>
