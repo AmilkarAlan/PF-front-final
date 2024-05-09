@@ -18,6 +18,8 @@ const StyledIconButton = styled(IconButton)({
     position: 'fixed',
     bottom: '20px',
     right: '20px',
+    zIndex: "1000",
+    marginLeft: "24px",
     '&:hover': {
         backgroundImage: 'linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)',
         boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
@@ -55,7 +57,7 @@ function Logout() {
 
     return (
         <Tooltip title="Logout">
-            <StyledIconButton onClick={handleLogout}>
+            <StyledIconButton onClick={ handleLogout }>
                 <ExitToAppIcon />
             </StyledIconButton>
         </Tooltip>
