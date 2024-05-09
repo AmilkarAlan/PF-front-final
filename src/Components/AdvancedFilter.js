@@ -25,9 +25,9 @@ function AdvancedFilter() {
             setLoading(true);
             try {
                 const responses = await Promise.all([
-                    fetch('http://localhost:3001/all-category'),
-                    fetch('http://localhost:3001/allbrands'),
-                    fetch('http://localhost:3001/allproducts')
+                    fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/all-category'),
+                    fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allbrands'),
+                    fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allproducts')
                 ]);
 
                 if (responses.some(response => !response.ok)) {
@@ -59,7 +59,7 @@ function AdvancedFilter() {
                 throw new Error('Please select both a category and a brand');
             }
 
-            const response = await fetch(`http://localhost:3001/products/filter/${startPrice}/${endPrice}/${startRating}/${endRating}/${category}/${brand}`, {
+            const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/filter/${startPrice}/${endPrice}/${startRating}/${endRating}/${category}/${brand}`, {
                 method: 'GET'
             });
 
