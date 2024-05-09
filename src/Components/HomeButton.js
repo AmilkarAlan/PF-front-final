@@ -18,7 +18,8 @@ const StyledIconButton = styled(IconButton)({
     position: 'fixed',
     bottom: '20px',
     right: '60px',
-    marginRight: "24px", // Adjusted positioning for better accessibility
+    marginRight: "24px",
+    zIndex: "1000", // Adjusted positioning for better accessibility
     '&:hover': {
         backgroundImage: 'linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)',
         boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
