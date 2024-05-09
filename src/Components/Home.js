@@ -7,34 +7,54 @@ import ProfileIcon from "./ProfileIcon";
 import ViewCartIcon from "./ViewCartIcon";
 import LoginIconButton from "./LoginIcon";
 import AdminButtonIcon from "./AdminButtonIcon";
+import FiltersIcon from "./AdvancedFilterButton";
 
+import { Snackbar, Alert } from '@mui/material';
+import { IconButton, TextField, InputAdornment } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+
+import { ArrowBackIosNew as ArrowBackIcon, ArrowForwardIos as ArrowForwardIcon } from '@mui/icons-material'; // paginado
 
 const accessToken = localStorage.getItem('accessToken');
 
 
 function Home() {
-    const [ products, setProducts ] = useState([]);
-    const [ generalError, setGeneralError ] = useState('');
-    const [ noProductsFoundError, setNoProductsFoundError ] = useState('');
-    const [ currentPage, setCurrentPage ] = useState(1);
-    const [ totalPages, setTotalPages ] = useState(1);
-    const [ productToSearch, setProductToSearch ] = useState('');
-    const [ noProductSearchError, setNoProductSearchError ] = useState('');
-    const [ foundProduct, setFoundProduct ] = useState([]);
-    const [ newsletterVisible, setNewsletterVisible ] = useState(false);
-    const [ alphabeticalOrder, setAlphabeticalOrder ] = useState(false);
-    const [ sortByPriceAsc, setSortByPriceAsc ] = useState(false);
-    const [ sortByPriceDesc, setSortByPriceDesc ] = useState(false);
-    const [ filteredProducts, setFilteredProducts ] = useState([]);
-    const [ quantities, setQuantities ] = useState({}); // quantity of the specific product.
-    const [ category, setCategory ] = useState('');
-    const [ successMessages, setSuccessMessages ] = useState({});
-    const [ minPrice, setMinPrice ] = useState(0);
-    const [ maxPrice, setMaxPrice ] = useState(1000000);
-    const [ categories, setCategories ] = useState([]);
-    const [ selectedCategory, setSelectedCategory ] = useState('');
-    const [ showCategories, setShowCategories ] = useState(false);
+    const [products, setProducts] = useState([]);
+    const [generalError, setGeneralError] = useState('');
+    const [noProductsFoundError, setNoProductsFoundError] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(1);
+    const [productToSearch, setProductToSearch] = useState('');
+    const [noProductSearchError, setNoProductSearchError] = useState('');
+    const [foundProduct, setFoundProduct] = useState([]);
+    const [newsletterVisible, setNewsletterVisible] = useState(false);
+    const [alphabeticalOrder, setAlphabeticalOrder] = useState(false);
+    const [sortByPriceAsc, setSortByPriceAsc] = useState(false);
+    const [sortByPriceDesc, setSortByPriceDesc] = useState(false);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [quantities, setQuantities] = useState({}); // 
+    const [category, setCategory] = useState('');
+    const [successMessages, setSuccessMessages] = useState({});
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(1000000); 
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [showCategories, setShowCategories] = useState(false);
+    const [productAddedToCart, setProductAddedToCart] = useState('');
 
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+
+
+    const handleSnackbarClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setSnackbarOpen(false);
+    };
+    
+    
+    
 
     const fetchProductsByPriceRange = async () => {
         try {
@@ -48,7 +68,8 @@ function Home() {
             if (response.ok) {
                 setProducts(data.products);
             } else {
-                throw new Error(data.message || 'Error fetching products');
+                //throw new Error(data.message || 'Error fetching products'); quitarlo de la PANTALLA
+                console.log('error fetching products');
             }
         } catch (error) {
             setGeneralError(`Fetch error: ${error.message}`);
@@ -103,7 +124,12 @@ function Home() {
                 const errorText = await response.text();
                 throw new Error('Failed to add product to cart. ' + errorText);
             }
+
+            setSnackbarMessage('Product added to cart successfully!'); // Set a success message
+            setSnackbarOpen(true);  // Open the snackbar
+
             console.log('Product added to server cart with quantity:', quantity);
+           
         } catch (error) {
             console.error('Error adding product to cart:', error);
         }
@@ -302,20 +328,28 @@ function Home() {
 
     return (
         <div className="Home">
-            < ProfileIcon />
-            < ViewCartIcon />
-            < LoginIconButton />
-            < AdminButtonIcon />
-            <div className="search-bar">
-                <input
+
+         
+            <div className="Home">
+                <TextField
+                    fullWidth
                     type="text"
                     placeholder="Search product"
-                    value={ productToSearch }
-                    onChange={ (e) => setProductToSearch(e.target.value) }
+                    value={productToSearch}
+                    onChange={(e) => setProductToSearch(e.target.value)}
+                    InputProps={{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton onClick={handleSearch} aria-label="search">
+                                    <SearchIcon />
+                                </IconButton>
+                            </InputAdornment>
+                        )
+                    }}
+                    variant="outlined"
                 />
-                <button onClick={ handleSearch }>Search</button>
-                { noProductSearchError && <p style={ { color: 'red' } }>{ noProductSearchError }</p> }
-                { foundProduct.length > 0 && (
+                {noProductSearchError && <p style={{ color: 'red' }}>{noProductSearchError}</p>}
+                {foundProduct.length > 0 && (
                     <div className="found-product">
                         <h2>{ foundProduct[ 0 ].product }</h2>
                         <p>{ foundProduct[ 0 ].description }</p>
@@ -323,20 +357,13 @@ function Home() {
                 ) }
             </div>
 
+            
 
 
-            {/* <div className="categories">
-                <button onClick={ () => setShowCategories(!showCategories) }>
-                    { showCategories ? 'Hide Categories' : 'Show Categories' }
-                    <div className="category-list">
-                        { categories.map((category) => (
-                            <p key={ category.id } onClick={ () => handleCategorySelect(category.category) }>
-                                { category.category }
-                            </p>
-                        )) }
-                    </div>
-                </button>
-            </div> */}
+            < ProfileIcon/>
+            < ViewCartIcon/>
+            < LoginIconButton/>
+            < AdminButtonIcon/>
 
 
 
@@ -348,7 +375,9 @@ function Home() {
                 <p>Price Range: ${ minPrice } - ${ maxPrice }</p>
             </div>
 
+            < FiltersIcon/>
 
+          
 
             <div className="toggle-button">
                 <button onClick={ () => setAlphabeticalOrder(!alphabeticalOrder) }>
@@ -366,47 +395,79 @@ function Home() {
 
 
             <div className="products-container">
-                { products.map(product => (
-                    <div key={ product.id } className="product-item">
-                        {/* Product Details */ }
-                        <Link to={ `/detail/${product.id}` } className="product-link">
-                            <div className="product">
-                                <h3>{ product.product }</h3>
-                                <p>{ product.description }</p>
-                                <img src={ product.image } alt={ product.product } />
-                                <p>Price: ${ product.price }</p>
-                                <p>Stock: { product.stock === 0 ? 'Out of Stock' : product.stock }</p>
-                            </div>
-                        </Link>
+    {products.map(product => (
+        <div key={product.id} className="product-item">
+            {/* Product Details */}
+            <Link to={`/detail/${product.id}`} className="product-link">
+                <div className="product">
+                    <h3>{product.product}</h3>
+                    <p>{product.description}</p>
+                    <img src={product.image} alt={product.product} />
+                    <p>Price: ${product.price}</p>
+                    <p>Stock: {product.stock === 0 ? 'Out of Stock' : product.stock}</p>
+                </div>
+            </Link>
 
-                        {/* Quantity and Cart Buttons */ }
-                        <div className="quantity-selector">
-                            <button onClick={ (e) => {
-                                e.stopPropagation(); // Stop click from propagating to any parent elements
-                                handleDecreaseQuantity(product.id);
-                            } }>-</button>
-                            <span>{ quantities[ product.id ] || 1 }</span>
-                            <button onClick={ (e) => {
-                                e.stopPropagation(); // Stop click from propagating to any parent elements
-                                handleIncreaseQuantity(product.id);
-                            } }>+</button>
-                        </div>
-                        <button onClick={ (e) => {
-                            e.preventDefault();  // Prevent the Link navigation
-                            e.stopPropagation(); // Stop propagation to prevent link navigation
-                            handleAddToServerCart(product.id, quantities[ product.id ] || 1, e);
-                        } }>
-                            Add to Server Cart
-                        </button>
-                    </div>
-                )) }
+
+
+            {/* Quantity and Cart Buttons */}
+            <div className="quantity-selector">
+                <button onClick={(e) => {
+                    e.stopPropagation(); // Stop click from propagating to any parent elements
+                    handleDecreaseQuantity(product.id);
+                }}>-</button>
+                <span>{quantities[product.id] || 1}</span>
+                <button onClick={(e) => {
+                    e.stopPropagation(); // Stop click from propagating to any parent elements
+                    handleIncreaseQuantity(product.id);
+                }}>+</button>
             </div>
 
 
-            <div className="pagination">
-                <button disabled={ currentPage === 1 } onClick={ handlePrevPage }>Previous</button>
-                <span>{ currentPage } / { totalPages }</span>
-                <button disabled={ currentPage === totalPages } onClick={ handleNextPage }>Next</button>
+            <button onClick={(e) => {
+                        e.preventDefault();  // bug reparado
+                        e.stopPropagation(); // bug reparado
+                        handleAddToServerCart(product.id, quantities[product.id] || 1);
+                            }}>
+                                Add to cart
+                            </button>
+
+
+                            <Snackbar
+                        open={snackbarOpen}
+                        autoHideDuration={6000}
+                        onClose={handleSnackbarClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                    >
+    <Alert onClose={handleSnackbarClose} severity="success" sx={{ width: '100%', backgroundColor: 'green', color: 'white' }}>
+        {snackbarMessage}
+    </Alert>
+</Snackbar>
+</div>
+
+    ))}
+</div>
+
+
+<div className="pagination">
+                <IconButton 
+                    onClick={handlePrevPage} 
+                    disabled={currentPage === 1}
+                    aria-label="previous page"
+                >
+                    <ArrowBackIcon />
+                </IconButton>
+                <span>{currentPage} / {totalPages}</span>
+                <IconButton 
+                    onClick={handleNextPage} 
+                    disabled={currentPage === totalPages}
+                    aria-label="next page"
+                >
+                    <ArrowForwardIcon />
+                </IconButton>
             </div>
 
             {/* { generalError && <p style={ { color: 'red' } }>{ generalError }</p> } */ }
@@ -414,7 +475,8 @@ function Home() {
             <br />
             { newsletterVisible && <Newsletter /> }
         </div>
-    );
+
+    );    
 
 
 };

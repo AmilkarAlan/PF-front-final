@@ -56,8 +56,14 @@ import ViewCart from './Components/ViewCart';
 import LandingPage from './Components/VisualComponents/LandingPage';
 import AboutUsPage from './Components/AboutUs';
 import GoogleLogin from './Components/GoogleLogin';
-import NotFoundPage from './Components/404';
-import PaymentCancelled from './Components/notAdmin';
+
+import HomeButton from './Components/HomeButton';
+
+
+import NotFoundPage from './Components/NotFoundPage';
+import PaymentCancelled from './Components/PaymentCancelled';
+
+
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -72,7 +78,11 @@ function App() {
   return (
     <Router>
 
+      <HomeButton />
+     
+
       < ShoppingCart/>
+      
     
       < Logout/>
 
@@ -126,6 +136,8 @@ function App() {
        <Route path='/viewcart' element={< ViewCart />} />
       <Route path='/google' element={< GoogleLogin />} />
      <Route path='/landingpage' element={< LandingPage />} />
+
+     
     
       <Route path='*' element={<NotFoundPage />}/> 
 
