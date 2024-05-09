@@ -102,7 +102,7 @@ function Detail() {
         }
     
         try {
-            const response = await FetchWithAuth('http://localhost:3001/review', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/review', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json', // Ensures server knows what format we expect
@@ -146,7 +146,7 @@ function Detail() {
     //report
     const handleReport = async () => {
         try {
-            const response = await FetchWithAuth(`http://localhost:3001/products/report/id`, {
+            const response = await FetchWithAuth(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/report/id`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -187,7 +187,7 @@ function Detail() {
         if (!accessToken) return;
 
         try {
-            const response = await FetchWithAuth('http://localhost:3001/products/user/favorites', {
+            const response = await FetchWithAuth('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/products/user/favorites', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -220,7 +220,7 @@ function Detail() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:3001/product-detail/${id}`);
+                const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/product-detail/${id}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch product detail');
                 }

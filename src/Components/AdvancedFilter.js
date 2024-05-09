@@ -22,7 +22,7 @@ function AdvancedFilter() {
         const fetchAllproducts = async () => {
             try {
                 
-                const response = await fetch('http://localhost:3001/allproducts')
+                const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allproducts')
                 const data = await response.json();
 
                 if (data.length === 0) {
@@ -45,7 +45,7 @@ function AdvancedFilter() {
     const fetchAllCategories = async () => {
         try {
             
-            const response = await fetch('http://localhost:3001/all-category');
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/all-category');
             const data = await response.json();
             if (data.length === 0) {
                 throw new Error('There are zero categories')
@@ -62,7 +62,7 @@ function AdvancedFilter() {
 
         try {
             
-            const response = await fetch('http://localhost:3001/allbrands');
+            const response = await fetch('https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/allbrands');
             const data = await response.json();
 
             if (data.length === 0) {
