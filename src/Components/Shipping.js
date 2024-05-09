@@ -6,25 +6,25 @@ const accessToken = localStorage.getItem('accessToken');
 const zipCodeRegex = /^\d+$/;
 
 function Shipping() {
-    const [generalError, setGeneralError] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
-    const [nicknameInUse, setNicknameInUse] = useState('');
-    const [invalidCountry, setInvalidCountry] = useState('');
-    const [invalidNickname, setInvalidNickname] = useState('');
-    const [invalidCity, setInvalidCity] = useState('');
-    const [invalidZipCode, setInvalidZipCode] = useState('');
-    const [maxShippingError, setMaxShippingError] = useState('');
+    const [ generalError, setGeneralError ] = useState('');
+    const [ successMessage, setSuccessMessage ] = useState('');
+    const [ nicknameInUse, setNicknameInUse ] = useState('');
+    const [ invalidCountry, setInvalidCountry ] = useState('');
+    const [ invalidNickname, setInvalidNickname ] = useState('');
+    const [ invalidCity, setInvalidCity ] = useState('');
+    const [ invalidZipCode, setInvalidZipCode ] = useState('');
+    const [ maxShippingError, setMaxShippingError ] = useState('');
 
-    const [formData, setFormData] = useState({
+    const [ formData, setFormData ] = useState({
         nickname: '',
         country: '',
         city: '',
         zip_code: ''
     });
 
-    /* if (!accessToken) {
+    if (!accessToken) {
         window.location.href = '/login';
-    } */
+    }
 
     const handleCreation = async (e) => {
         e.preventDefault();
@@ -98,49 +98,49 @@ function Shipping() {
     return (
         <div className="Shipping">
             <h2>Create Shipping Address</h2>
-            <form onSubmit={handleCreation}>
+            <form onSubmit={ handleCreation }>
                 <div>
                     <label>Nickname:</label>
                     <input
                         type="text"
-                        value={formData.nickname}
-                        onChange={(e) => setFormData({ ...formData, nickname: e.target.value })}
+                        value={ formData.nickname }
+                        onChange={ (e) => setFormData({ ...formData, nickname: e.target.value }) }
                     />
-                    {invalidNickname && <p style={{ color: 'red' }}>{invalidNickname}</p>}
-                    {nicknameInUse && <p style={{ color: 'red' }}>{nicknameInUse}</p>}
+                    { invalidNickname && <p style={ { color: 'red' } }>{ invalidNickname }</p> }
+                    { nicknameInUse && <p style={ { color: 'red' } }>{ nicknameInUse }</p> }
                 </div>
                 <div>
                     <label>Country:</label>
                     <input
                         type="text"
-                        value={formData.country}
-                        onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                        value={ formData.country }
+                        onChange={ (e) => setFormData({ ...formData, country: e.target.value }) }
                     />
-                    {invalidCountry && <p style={{ color: 'red' }}>{invalidCountry}</p>}
+                    { invalidCountry && <p style={ { color: 'red' } }>{ invalidCountry }</p> }
                 </div>
                 <div>
                     <label>City:</label>
                     <input
                         type="text"
-                        value={formData.city}
-                        onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                        value={ formData.city }
+                        onChange={ (e) => setFormData({ ...formData, city: e.target.value }) }
                     />
-                    {invalidCity && <p style={{ color: 'red' }}>{invalidCity}</p>}
+                    { invalidCity && <p style={ { color: 'red' } }>{ invalidCity }</p> }
                 </div>
                 <div>
                     <label>Zip Code:</label>
                     <input
                         type="text"
-                        value={formData.zip_code}
-                        onChange={(e) => setFormData({ ...formData, zip_code: e.target.value })}
+                        value={ formData.zip_code }
+                        onChange={ (e) => setFormData({ ...formData, zip_code: e.target.value }) }
                     />
-                    {invalidZipCode && <p style={{ color: 'red' }}>{invalidZipCode}</p>}
+                    { invalidZipCode && <p style={ { color: 'red' } }>{ invalidZipCode }</p> }
                 </div>
-                <button type="submit" onClick={handleCreation}>Create Shipping Address</button>
+                <button type="submit" onClick={ handleCreation }>Create Shipping Address</button>
             </form>
-            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-            {generalError && <p style={{ color: 'red' }}>{generalError}</p>}
-            {maxShippingError && <p style={{ color: 'red' }}>{maxShippingError}</p>}
+            { successMessage && <p style={ { color: 'green' } }>{ successMessage }</p> }
+            { generalError && <p style={ { color: 'red' } }>{ generalError }</p> }
+            { maxShippingError && <p style={ { color: 'red' } }>{ maxShippingError }</p> }
         </div>
     );
 }

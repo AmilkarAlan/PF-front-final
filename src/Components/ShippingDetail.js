@@ -14,7 +14,9 @@ function ShippingDetail() {
     const [maxShippingMessage, setMaxShippingMessage] = useState('');
     const [invalidAddrDeletion, setInvalidAddrDeletion] = useState('');
 
-
+    if (!accessToken) {
+        window.location.href = '/login'
+    }
 
     const fetchShippingDetails = async () => {
         try {

@@ -14,7 +14,9 @@ function Order() {
     const [filterAsc, setFilterAsc] = useState(false); 
     const [filterDesc, setFilterDesc] = useState(false); 
     const [filterType, setFilterType] = useState('pending');  // <-- default.
-
+    if (!accessToken) {
+        window.location.href = '/login'
+    }
     useEffect(() => {
         const fetchOrders = async () => {
             try {

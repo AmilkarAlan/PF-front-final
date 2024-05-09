@@ -15,13 +15,13 @@ let PROFILE_URL = 'https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/pr
 
 
 function ViewProfile() {
-    const [profileInfo, setProfileInfo] = useState({});
-    const [generalError, setGeneralError] = useState('');
-    const [isButtonVisible, setIsButtonVisible] = useState('');
+    const [ profileInfo, setProfileInfo ] = useState({});
+    const [ generalError, setGeneralError ] = useState('');
+    const [ isButtonVisible, setIsButtonVisible ] = useState('');
 
-  /*  if (!accessToken) {
-    window.location.href = '/login'
-   } */
+    if (!accessToken) {
+        window.location.href = '/login'
+    }
 
     const fetchProfile = async () => {
         try {
@@ -31,7 +31,7 @@ function ViewProfile() {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${accessToken}`
                 },
-            //    credentials: 'include' // <===
+                //    credentials: 'include' // <===
             });
 
             if (!response.ok) {
@@ -55,65 +55,65 @@ function ViewProfile() {
 
     useEffect(() => {
         fetchProfile();
-    }, []); 
+    }, []);
 
     return (
-        <Box className="ViewProfile" sx={{ maxWidth: 400, mx: 'auto', mt: 4 }}>
+        <Box className="ViewProfile" sx={ { maxWidth: 400, mx: 'auto', mt: 4 } }>
             <Card variant="outlined">
                 <CardContent>
-                    <Typography variant="h5" component="div" sx={{ mb: 2 }}>
+                    <Typography variant="h5" component="div" sx={ { mb: 2 } }>
                         Profile
                     </Typography>
-                    <Box sx={{ mb: 1 }}>
+                    <Box sx={ { mb: 1 } }>
                         <Typography variant="body1">
-                            First name: {profileInfo.first_name || 'N/A'}
+                            First name: { profileInfo.first_name || 'N/A' }
                         </Typography>
                     </Box>
-                    <Box sx={{ mb: 1 }}>
+                    <Box sx={ { mb: 1 } }>
                         <Typography variant="body1">
-                            Last name: {profileInfo.last_name || 'N/A'}
+                            Last name: { profileInfo.last_name || 'N/A' }
                         </Typography>
                     </Box>
-                    <Box sx={{ mb: 1 }}>
+                    <Box sx={ { mb: 1 } }>
                         <Typography variant="body1">
-                            Username: {profileInfo.username || 'N/A'}
+                            Username: { profileInfo.username || 'N/A' }
                         </Typography>
                     </Box>
-                    <Box sx={{ mb: 1 }}>
+                    <Box sx={ { mb: 1 } }>
                         <Typography variant="body1">
-                            Email: {profileInfo.email || 'N/A'}
+                            Email: { profileInfo.email || 'N/A' }
                         </Typography>
                     </Box>
-                    <Box sx={{ mb: 1 }}>
+                    <Box sx={ { mb: 1 } }>
                         <Typography variant="body1">
-                            Admin: {profileInfo.is_admin ? 'Yes' : 'No'}
+                            Admin: { profileInfo.is_admin ? 'Yes' : 'No' }
                         </Typography>
                     </Box>
-                    <Box sx={{ mb: 1 }}>
+                    <Box sx={ { mb: 1 } }>
                         <Typography variant="body1">
-                            Two Factor Authentication: {profileInfo.two_factor_authentication ? 'Enabled' : 'Disabled'}
+                            Two Factor Authentication: { profileInfo.two_factor_authentication ? 'Enabled' : 'Disabled' }
                         </Typography>
                     </Box>
-                    <Box sx={{ mb: 1 }}>
+                    <Box sx={ { mb: 1 } }>
                         <Typography variant="body1">
-                            Joined on: {profileInfo.createdAt || 'N/A'}
+                            Joined on: { profileInfo.createdAt || 'N/A' }
                         </Typography>
                     </Box>
                 </CardContent>
-                <Box sx={{ display: 'flex', justifyContent: 'space-around', p: 2 }}>
-                    {isButtonVisible && (
-                        <Button variant="contained" onClick={() => window.location.href='/activate2fa'}>
+                <Box sx={ { display: 'flex', justifyContent: 'space-around', p: 2 } }>
+                    { isButtonVisible && (
+                        <Button variant="contained" onClick={ () => window.location.href = '/activate2fa' }>
                             Enable Two-Factor Authentication
                         </Button>
-                    )}
-                    <Button variant="outlined" onClick={() => {window.location.href='/updateprofileinfo'}}>
+                    ) }
+                    <Button variant="outlined" onClick={ () => { window.location.href = '/updateprofileinfo' } }>
                         Update Profile Info
                     </Button>
-                    <Button variant="outlined" onClick={() => {window.location.href='/updateprofilepassword'}} sx={{ ml: 2 }}>
+                    <Button variant="outlined" onClick={ () => { window.location.href = '/updateprofilepassword' } } sx={ { ml: 2 } }>
                         Update Password
                     </Button>
                 </Box>
-                {generalError && <Typography color="error">{generalError}</Typography>}
+                { generalError && <Typography color="error">{ generalError }</Typography> }
             </Card>
             <ViewCartIcon />
             <AdminButtonIcon />
@@ -121,7 +121,7 @@ function ViewProfile() {
     );
 }
 
-    
+
 
 
 export default ViewProfile;
