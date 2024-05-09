@@ -47,7 +47,7 @@ function Signup() {
         }
 
         try {
-            const response = await fetch(`${URL}:${PORT}/signup`, {
+            const response = await fetch(`https://proyecto-final-back-end-a466e2d08fab.herokuapp.com/signup`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json' 
